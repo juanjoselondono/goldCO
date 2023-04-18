@@ -27,18 +27,45 @@
   color: #0070f3;
 }
 
-.cart a {
+.cart {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3rem;
-  height: 3rem;
-  background-color: #0070f3;
-  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
   color: #ffffff;
   text-decoration: none;
+  transition: 0.5s;
+  margin-right: 5%;
 }
 
-.cart a:hover {
-  background-color: #005bc0;
+.cart:hover {
+  transform: scale(1.2);
+  cursor:pointer
+}
+.cart:active{
+  transform: scale(0.8);
+}
+.navbar_toggle {
+  display: block;
+}
+
+.navbar_collapse.collapse {
+  display: none !important;
+}
+.navbar_nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px
+}
+@media (max-width: 768px) {
+  .navbar_nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

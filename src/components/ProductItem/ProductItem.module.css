@@ -4,15 +4,13 @@
     align-items: center;
     margin: 1rem;
     padding: 1rem;
-    border: 0.5px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14), 0 1px 5px rgba(0, 0, 0, 0.12),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: black;
   }
   .product_name {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    font-family: 'latin';
+    font-family: var(--bs-navbar-brand-font-size);
   }
   
   .product_description {
@@ -28,12 +26,13 @@
   .product_image {
     width: 100%;
     max-width: 400px;
-    height: auto;
+    height: 25vh;
+    object-fit: cover;
     margin-bottom: 0.5rem;
   }
-  
   .product_button {
-    background-color: #007bff;
+    display: flex;
+    background-color: #D4AF37	;
     color: #fff;
     padding: 0.5rem;
     border-radius: 4px;
@@ -46,4 +45,9 @@
   .product_button:hover {
     background-color: #0062cc;
   }
-  
+  .product:hover{
+    transform: scale(1.1);
+    transition: 0.7s;
+    cursor: pointer;
+    color: black;
+  }

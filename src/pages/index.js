@@ -7,40 +7,40 @@ const Home = () => {
   const products = [
     {
       id: 1,
-      name: 'Product 1',
-      description: 'Description for Product 1',
-      price: '$10.99',
-      image: 'https://via.placeholder.com/300x200.png?text=Product+1'
+      name: 'Gold Necklace',
+      description: 'Stunning 14K gold necklace with a delicate chain.',
+      price: '$349.99',
+      image: 'https://sencowebfiles.s3.ap-south-1.amazonaws.com/products/uGzrnEU6Idgnk9kIBpRfGE6qFandQP3ZebVonnRm.jpeg'
     },
     {
       id: 2,
-      name: 'Product 2',
-      description: 'Description for Product 2',
-      price: '$12.99',
-      image: 'https://via.placeholder.com/300x200.png?text=Product+2'
+      name: 'Gold Ring',
+      description: 'Elegant 18K gold ring with a diamond accent.',
+      price: '$499.99',
+      image: 'https://staticimg.titan.co.in/Tanishq/Catalog/513218FOYAA00_1.jpg?impolicy=pqmed&imwidth=640'
     },
     {
       id: 3,
-      name: 'Product 3',
-      description: 'Description for Product 3',
-      price: '$14.99',
-      image: 'https://via.placeholder.com/300x200.png?text=Product+3'
+      name: 'Gold Watch',
+      description: 'Luxurious 22K gold watch with a leather strap.',
+      price: '$999.99',
+      image: 'https://cdn.shopify.com/s/files/1/0878/3890/products/1053CH-TQ_2048x.jpg?v=1633100206'
     },
     {
       id: 4,
-      name: 'Product 4',
-      description: 'Description for Product 4',
-      price: '$12.99',
-      image: 'https://via.placeholder.com/300x200.png?text=Product+4'
+      name: 'Gold Earrings',
+      description: 'Stylish 14K gold earrings with a unique design.',
+      price: '$199.99',
+      image: 'https://3.imimg.com/data3/VM/FC/MY-1757304/gold-silver-jewlry-lemon-500x500.jpg'
     },
     {
       id: 5,
-      name: 'Banana',
-      description:'very healthy fruit',
-      price: '7.00',
-      image: 'https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-white-background_1284-45456.jpg?w=2000'
+      name: 'Gold Bracelet',
+      description: 'Gorgeous 24K gold bracelet with a intricate pattern.',
+      price: '$799.99',
+      image: 'https://image.reliancejewels.com/Jewels/images/productImages/978/22-kt-gold-bracelet-large_c2b09d2ab30f3af9e1763f46e03b2a5a.jpg'
     }
-  ]
+  ];
   const [searchQuery, setSearchQuery] = useState('')
   const [recommendations, setRecommendations] = useState([])
 
@@ -58,15 +58,12 @@ const Home = () => {
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  const matchingRecommendations = recommendations.filter((name) =>
-    name.toLowerCase().includes(searchQuery.toLowerCase())
-  )
 
 
   return (
     <div >
       <SearchBar
-        placeholder="Search for products"
+        placeholder={`Search for products`}
         onSearch={handleSearch}
       />
       <ProductList products={filteredProducts} />
