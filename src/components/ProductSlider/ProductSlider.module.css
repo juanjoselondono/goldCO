@@ -1,0 +1,17 @@
+.carousel_image{
+    width: 40vh;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 25px;
+
+}
+.container{
+    margin-right: 5%;
+}
+@media (max-width: 768px) {
+    /* Your CSS styles for phones go here */
+    .container{
+        margin-right: 0%;
+    }
+}

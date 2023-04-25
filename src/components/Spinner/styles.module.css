@@ -1,0 +1,7 @@
+.spinner_container{
+    width: 20vh;
+    height: 20vh;
+    justify-self: center;
+    align-self: center;
+    margin-top: 10%;
+}

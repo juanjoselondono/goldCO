@@ -13,9 +13,9 @@ function NavBar() {
           <Container fluid>
           <Navbar.Toggle className={styles.navbar_toggle} aria-controls={`offcanvasNavbar-expand-${expand}`} />
 
-            <Navbar.Brand href="#">E-commerce</Navbar.Brand>
+            <Navbar.Brand href="/">E-commerce</Navbar.Brand>
             <Nav className={styles.navbar_nav}>
-              <Nav.Link className={styles.navbar_item} href="#home">Home</Nav.Link>
+              <Nav.Link className={styles.navbar_item} href="/">Home</Nav.Link>
               <Nav.Link href="#home">Products</Nav.Link>
               <Nav.Link href="#home">Info</Nav.Link>
             </Nav>
