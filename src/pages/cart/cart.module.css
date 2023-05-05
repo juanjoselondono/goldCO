@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    margin-top: 5%;
+}
+.cart_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.cart_item_image{
+    width: 10vh;
+}
+.cart_item_labels{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.button{
+    width: 20vh;
+    margin: 5%;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+}
+.button_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.label_title{
+    margin-bottom: 5%;
+
+}
+.button_remove{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+}

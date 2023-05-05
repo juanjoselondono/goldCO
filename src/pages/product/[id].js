@@ -3,24 +3,27 @@ import Purchase from '@/components/Purchase/Purchase'
 import ProductSlider from '@/components/ProductSlider/ProductSlider'
 import styles from './id.module.css'
 import getData from "@/firebase/firestore/getData";
-import { useEffect, useState } from 'react';
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { id: '*' } }
-    ],
-    fallback: true
-  };
-}
-export async function getStaticProps(context) {
-  const data = await getData('products', context.params.id);
+export async function getServerSideProps(context) {
+  const { id } = context.query;
+  const data = await getData('products', id);
+
+  if (!data.result) {
+    return {
+      notFound: true,
+    };
+  }
+
   const product = data.result.data();
   return { props: { product } };
 }
 
 
 const Product = ({product}) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Loading data...</div>;
+  }
   return (
       <div className={styles.container}>
         { product != {} && JSON.stringify(product) != '' &&
