@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css'
-function Counter() {
-  const [count, setCount] = useState(1);
-
+function Counter({count, setCount}) {
   function handleIncrement() {
     setCount(count + 1);
   }
@@ -27,9 +25,11 @@ function Counter() {
   return (
     <div className={styles.container}>
       <p className={styles.label}>Cantidad</p>
-      <button className={styles.button} onClick={handleIncrement}>+</button>
-        <input className={styles.input} type="number" value={count} onChange={handleInputChange} />
-      <button className={styles.button} onClick={handleDecrement}>-</button>
+      <div className={styles.buttons_container}>
+        <button className={styles.button} onClick={handleIncrement}>+</button>
+          <input className={styles.input} type="number" value={count} onChange={handleInputChange} />
+        <button className={styles.button} onClick={handleDecrement}>-</button>
+      </div>
     </div>
   );
 }

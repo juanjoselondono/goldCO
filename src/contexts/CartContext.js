@@ -14,6 +14,8 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   const addToCart = (product) => {
+    var milisencond_id = new Date()
+    product.id = product.id +  String(milisencond_id.getMilliseconds())
     const asyncItems = localStorage.getItem('cartItems');
     let cartItems = [];
   
@@ -32,12 +34,23 @@ export const CartProvider = ({ children }) => {
     setCartItems(cartItems);
   };
 
+  // const removeFromCart = (product) => {
+  //   // ...remove the product from the cartItems array...
+  //   var newCartItems = cartItems.filter((item) => item.id !== product.id)
+  //   // Update the cartItems state
+  //   setCartItems(newCartItems);
+  //   localStorage.setItem('cartItems', JSON.stringify(newCartItems))
+  // };
   const removeFromCart = (product) => {
-    // ...remove the product from the cartItems array...
-
-    // Update the cartItems state
-    setCartItems(cartItems.filter((item) => item.id !== product.id));
+    const index = cartItems.findIndex((item) => item.id === product.id);
+    if (index !== -1) {
+      const newCartItems = [...cartItems];
+      newCartItems.splice(index, 1);
+      setCartItems(newCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+    }
   };
+  
   const clearCart = ()=>{
     alert('cart deleted')
     localStorage.removeItem('cartItems')
