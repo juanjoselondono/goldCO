@@ -14,8 +14,6 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   const addToCart = (product) => {
-    var milisencond_id = new Date()
-    product.id = product.id +  String(milisencond_id.getMilliseconds())
     const asyncItems = localStorage.getItem('cartItems');
     let cartItems = [];
   
@@ -24,23 +22,41 @@ export const CartProvider = ({ children }) => {
       cartItems = JSON.parse(asyncItems);
     }
   
-    // Add the new product to the cart items array
-    cartItems.push(product);
+    let productFound = false;
+  
+    cartItems.forEach((item) => {
+      if (item.id === product.id) {
+        item.quantity += product.quantity;
+        console.log('repeated', item.quantity);
+        productFound = true;
+      }
+    });
+  
+    if (!productFound) {
+      cartItems.push(product);
+    }
   
     // Store the updated cart items array in local storage
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    console.log(cartItems)
     // Update the cartItems state
     setCartItems(cartItems);
   };
+  
+  const updateQuantity = (productId, newQuantity) => {
+    const updatedItems = cartItems.map((item) => {
+      if (item.id === productId) {
+        return {
+          ...item,
+          quantity: newQuantity,
+        };
+      }
+      return item;
+    });
 
-  // const removeFromCart = (product) => {
-  //   // ...remove the product from the cartItems array...
-  //   var newCartItems = cartItems.filter((item) => item.id !== product.id)
-  //   // Update the cartItems state
-  //   setCartItems(newCartItems);
-  //   localStorage.setItem('cartItems', JSON.stringify(newCartItems))
-  // };
+    setCartItems(updatedItems);
+    localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+  };
+
   const removeFromCart = (product) => {
     const index = cartItems.findIndex((item) => item.id === product.id);
     if (index !== -1) {
@@ -56,7 +72,7 @@ export const CartProvider = ({ children }) => {
     localStorage.removeItem('cartItems')
   }
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, updateQuantity}}>
       {children}
     </CartContext.Provider>
   );

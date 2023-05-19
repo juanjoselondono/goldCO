@@ -4,8 +4,8 @@ import { CartContext } from "../../contexts/CartContext";
 import styles from './CartItem.module.css'
 import Quantity from '../Quantity'
 const CartItem = ({item}) => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
-  const [quantity, setQuantity] = useState(1)
+  const { removeFromCart } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(item.quantity)
   const handleRemoveItem = (item) => {
     removeFromCart(item);
   };
